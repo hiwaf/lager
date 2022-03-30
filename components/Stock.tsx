@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import config from "../config/config.json";
 
 function StockList() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<any[]>([]);
 
     useEffect(() => {
         fetch(`${config.base_url}/products?api_key=${config.api_key}`)
@@ -14,9 +14,10 @@ function StockList() {
     }, []);
 
     const list = products.map((product, index) => (
-        <Text key={index}>
-            {product.name} - {product.stock}
-        </Text>
+        <View key={index} style={styles.product}>
+            <Text style={styles.text}>{product.name}</Text>
+            <Text style={styles.text}>{product.stock}</Text>
+        </View>
     ));
 
     return <View>{list}</View>;
@@ -24,11 +25,30 @@ function StockList() {
 
 export default function Stock() {
     return (
-        <View>
-            <Text style={{ color: "#333", fontSize: 24 }}>
-                Lagerförteckning
-            </Text>
+        <ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
+            <Text style={styles.title}>Lagerförteckning</Text>
             <StockList />
-        </View>
+        </ScrollView>
     );
 }
+
+const styles = StyleSheet.create({
+    title: {
+        justifyContent: "center",
+        textAlign: "center",
+        color: "#33c",
+        fontSize: 28,
+        marginBottom: 8
+    },
+    text: {
+        fontSize: 18
+    },
+    product: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginHorizontal: 12,
+        borderWidth: 1,
+        marginVertical: 4,
+        padding: 8
+    }
+});
