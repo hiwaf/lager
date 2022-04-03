@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
-import config from "../config/config.json";
+import { Text, View, ScrollView } from "react-native";
+import config from "../../../config/config.json";
+import { styles } from "./styles";
 
 function StockList() {
     const [products, setProducts] = useState<any[]>([]);
@@ -9,7 +10,7 @@ function StockList() {
         fetch(`${config.base_url}/products?api_key=${config.api_key}`)
             .then((response) => response.json())
             .then((result) => {
-                console.log(result), setProducts(result.data);
+                setProducts(result.data);
             });
     }, []);
 
@@ -31,24 +32,3 @@ export default function Stock() {
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    title: {
-        justifyContent: "center",
-        textAlign: "center",
-        color: "#33c",
-        fontSize: 28,
-        marginBottom: 8
-    },
-    text: {
-        fontSize: 18
-    },
-    product: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginHorizontal: 12,
-        borderWidth: 1,
-        marginVertical: 4,
-        padding: 8
-    }
-});

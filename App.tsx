@@ -1,35 +1,23 @@
 import { StatusBar } from "expo-status-bar";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { styles } from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
-import warehouse from "./assets/warehouse.jpg";
-import Stock from "./components/Stock";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeScreen from "./components/HomeScreen";
+import ListScreen from "./components/ListNavigator/index";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.base}>
-                <Text style={styles.title}>Lager-Appen</Text>
-                <Image source={warehouse} style={{ width: "100%", height: 240, marginBottom: 8 }} />
-                <Stock />
-                <StatusBar style='auto' />
-            </View>
+            <StatusBar style='auto' />
+            <NavigationContainer>
+                <Tab.Navigator>
+                    <Tab.Screen name='Lager' component={HomeScreen} />
+                    <Tab.Screen name='List' component={ListScreen} />
+                </Tab.Navigator>
+            </NavigationContainer>
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    base: {
-        flex: 1,
-        backgroundColor: "#fefefe",
-    },
-    title: {
-        justifyContent: "center",
-        textAlign: "center",
-        color: "#33c",
-        fontSize: 42,
-        marginBottom: 8
-    }
-});
