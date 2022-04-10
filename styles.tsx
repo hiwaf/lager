@@ -19,5 +19,22 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: 240,
         marginBottom: 8
+    },
+    listItem: {
+        padding: 8,
+        backgroundColor: "#fefefe"
+    },
+    subtitle: {
+        fontSize: 18,
+        marginBottom: 8
+    },
+    button: {
+        backgroundColor: "#33c",
+        padding: 8,
+        marginTop: 8
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 18
     }
 });

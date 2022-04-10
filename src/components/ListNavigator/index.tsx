@@ -8,7 +8,7 @@ function StackScreen() {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerShown: false
+                headerBackButtonMenuEnabled: true
             }}
         >
             <Stack.Screen name='Home' component={ListScreen} />

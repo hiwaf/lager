@@ -3,8 +3,8 @@ import { styles } from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./components/HomeScreen";
-import ListScreen from "./components/ListNavigator/index";
+import HomeScreen from "./src/components/HomeScreen";
+import ListScreen from "./src/components/ListNavigator/index";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,8 +14,16 @@ export default function App() {
             <StatusBar style='auto' />
             <NavigationContainer>
                 <Tab.Navigator>
-                    <Tab.Screen name='Lager' component={HomeScreen} />
-                    <Tab.Screen name='List' component={ListScreen} />
+                    <Tab.Screen
+                        name='Lager'
+                        component={HomeScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Tab.Screen
+                        name='List'
+                        component={ListScreen}
+                        options={{ headerShown: false }}
+                    />
                 </Tab.Navigator>
             </NavigationContainer>
         </SafeAreaView>
