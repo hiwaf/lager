@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, Pressable } from "react-native";
-import config from "../../../../config/config.json";
 import { styles } from "../../../../styles";
-import { pickOrder } from "../../../api";
+import { getOrder, pickOrder } from "../../../api";
 
 const DetailsScreen = (props: any) => {
     const { navigation, route } = props;
@@ -11,11 +10,9 @@ const DetailsScreen = (props: any) => {
     const [canPick, setCanPick] = useState<boolean>(true);
 
     useEffect(() => {
-        fetch(`${config.base_url}/orders/${id}?api_key=${config.api_key}`)
-            .then((response) => response.json())
-            .then((result) => {
-                setSingleOrder(result.data);
-            });
+        getOrder(id).then((res) => {
+            setSingleOrder(res.data);
+        });
     }, []);
 
     const changeOrder = async (singleOrder: object) => {

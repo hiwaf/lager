@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     },
     base: {
         flex: 1,
+        flexDirection: "column",
         backgroundColor: "#fefefe"
     },
     title: {
@@ -36,5 +37,8 @@ export const styles = StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontSize: 18
+    },
+    picker: {
+        marginBottom: 8
     }
 });

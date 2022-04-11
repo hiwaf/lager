@@ -4,7 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./src/components/HomeScreen";
-import ListScreen from "./src/components/ListNavigator/index";
+import ListScreen from "./src/components/ListNavigator";
+import DeliveryScreen from "./src/components/Deliveries";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +23,11 @@ export default function App() {
                     <Tab.Screen
                         name='List'
                         component={ListScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Tab.Screen
+                        name='Deliveries'
+                        component={DeliveryScreen}
                         options={{ headerShown: false }}
                     />
                 </Tab.Navigator>

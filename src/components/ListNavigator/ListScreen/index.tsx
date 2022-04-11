@@ -10,7 +10,6 @@ function ListScreen({ navigation }: { navigation: any }) {
     const isFocused = useIsFocused();
 
     useEffect(() => {
-        console.log("isFocused", isFocused);
         if (isFocused)
             getOrders().then((res) => {
                 setOrders(
