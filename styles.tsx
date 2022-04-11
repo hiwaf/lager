@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#fff"
     },
     base: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "#fefefe"
+        backgroundColor: "#fff"
     },
     title: {
         justifyContent: "center",
@@ -23,22 +24,43 @@ export const styles = StyleSheet.create({
     },
     listItem: {
         padding: 8,
-        backgroundColor: "#fefefe"
+        backgroundColor: "#fff"
     },
     subtitle: {
         fontSize: 18,
         marginBottom: 8
     },
     button: {
+        elevation: 8,
         backgroundColor: "#33c",
-        padding: 8,
-        marginTop: 8
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12
     },
     buttonText: {
+        fontSize: 18,
         color: "#fff",
-        fontSize: 18
+        fontWeight: "bold",
+        alignSelf: "center",
+        textTransform: "uppercase"
     },
     picker: {
         marginBottom: 8
+    },
+    datePicker: {
+        width: "100%",
+        height: 40,
+        marginBottom: 8,
+        borderColor: "#33c",
+        borderWidth: 1,
+        borderRadius: 4
+    },
+    textInput: {
+        marginBottom: 8,
+        height: 40,
+        borderColor: "#33c",
+        borderWidth: 1,
+        borderRadius: 4,
+        padding: 8
     }
 });

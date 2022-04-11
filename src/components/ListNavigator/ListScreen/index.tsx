@@ -35,7 +35,7 @@ function ListScreen({ navigation }: { navigation: any }) {
     ));
 
     return (
-        <View>
+        <View style={{ height: "100%", backgroundColor: "#fff" }}>
             <Text style={styles.subtitle}>Orders ready to get picked up:</Text>
             {list}
         </View>
