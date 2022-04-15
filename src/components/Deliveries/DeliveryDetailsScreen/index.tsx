@@ -44,6 +44,7 @@ const DetailsScreen = (props: any) => {
         };
 
         addDelivery(delivery).then((res) => {
+            console.log("addDelivery", res);
             if (res) navigation.goBack();
         });
     };

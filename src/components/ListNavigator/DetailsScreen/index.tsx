@@ -27,7 +27,7 @@ const DetailsScreen = (props: any) => {
 
     if (singleOrder) {
         return (
-            <View style={styles.base}>
+            <View style={{ backgroundColor: "#fff", padding: 20 }}>
                 <Text style={styles.title}>{singleOrder.name}</Text>
                 <Text style={styles.subtitle}>
                     {singleOrder.address}&nbsp;{singleOrder.city}&nbsp;
